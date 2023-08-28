@@ -1,0 +1,20 @@
+.inputGroup {
+    margin: 1rem 0;
+}
+
+.label {
+    color: dimgray;
+}
+
+.input {
+    display: block;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-color: steelblue;
+    padding: 0.2rem;
+    width: 100%;
+}
+
+.input:focus {
+    outline: none;
+}
