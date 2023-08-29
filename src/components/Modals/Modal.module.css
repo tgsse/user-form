@@ -1,0 +1,25 @@
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+
+}
+
+.modalHeaderContainer {
+    background-color: steelblue;
+    color: white;
+}
+
+.modalHeader {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.modalBody {
+    padding: 1rem;
+}
+
+.actionsContainer {
+    text-align: right;
+}
