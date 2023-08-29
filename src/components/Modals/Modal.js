@@ -12,7 +12,7 @@ export default function Modal(props) {
                 </div>
 
                 <div className={classes.modalBody}>
-                    {props.children}
+                    <p>{props.message}</p>
                 </div>
 
                 <div className={classes.actionsContainer}>
@@ -22,4 +22,11 @@ export default function Modal(props) {
             </Card>
         </div>
     )
+}
+
+export const defaultModalState = {
+    isVisible: false,
+    title: "",
+    message: "",
+    onClose: undefined,
 }
