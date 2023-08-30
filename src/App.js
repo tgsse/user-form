@@ -13,19 +13,37 @@ function App() {
         setModalState({
                 ...defaultModalState,
                 isVisible: true,
-                title: error.message,
-                message: error.details,
+                title: error.title,
+                messages: error.messages,
                 onClose: () => setModalState({ ...defaultModalState }),
             }
         )
     }
 
+    const onSubmit = (user) => {
+        setUsers(prevState => {
+            console.log("prev", prevState)
+            return [
+            ...prevState,
+            user,
+        ]})
+    }
+
     return (
-        <>
-            <Form users={users} onError={onFormError}/>
+        <div className={"container"}>
+            <Form
+                users={users}
+                onError={onFormError}
+                onSubmit={onSubmit}
+            />
             <UserList users={users}/>
-            {modalState.isVisible && <Modal {...modalState}/>}
-        </>
+            {modalState.isVisible &&
+                <Modal
+                    title={modalState.title}
+                    messages={modalState.messages}
+                    onClose={modalState.onClose}
+                />}
+        </div>
     )
 }
 

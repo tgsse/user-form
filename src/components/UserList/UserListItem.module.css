@@ -1,3 +1,10 @@
 .listItem {
-    outline: 1px solid dimgray;
+    padding: .25rem .5rem;
+    outline: 1px solid lightslategray;
+    margin: .5rem 0;
+    border-radius: .25rem;
+}
+
+.name {
+    font-weight: bold;
 }

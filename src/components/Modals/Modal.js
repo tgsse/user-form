@@ -3,8 +3,17 @@ import Button from "../Button/Button";
 import Card from "../Card/Card";
 
 export default function Modal(props) {
+
+    const onClose = (event) => {
+        console.log("event", event)
+        console.log("event", event.currentTarget)
+        event.stopPropagation();
+        props.onClose(event)
+    }
+
     return (
-        <div className={classes.overlay} onClick={props.onClose}>
+        <>
+            <div className={classes.overlay} onClick={onClose} />
             <Card className={classes.modal}>
 
                 <div className={classes.modalHeaderContainer}>
@@ -12,7 +21,9 @@ export default function Modal(props) {
                 </div>
 
                 <div className={classes.modalBody}>
-                    <p>{props.message}</p>
+                    {props.messages.map((message) => (
+                        <p key={message}>{message}</p>
+                    ))}
                 </div>
 
                 <div className={classes.actionsContainer}>
@@ -20,13 +31,13 @@ export default function Modal(props) {
                 </div>
 
             </Card>
-        </div>
+        </>
     )
 }
 
 export const defaultModalState = {
     isVisible: false,
     title: "",
-    message: "",
+    messages: [],
     onClose: undefined,
 }
