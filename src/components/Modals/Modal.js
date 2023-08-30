@@ -13,12 +13,12 @@ export default function Modal(props) {
 
     return (
         <>
-            <div className={classes.overlay} onClick={onClose} />
+            <div className={classes.backdrop} onClick={onClose} />
             <Card className={classes.modal}>
 
-                <div className={classes.modalHeaderContainer}>
-                    <p className={classes.modalHeader}>{props.title}</p>
-                </div>
+                <header className={classes.modalHeaderContainer}>
+                    <h2 className={classes.modalHeader}>{props.title}</h2>
+                </header>
 
                 <div className={classes.modalBody}>
                     {props.messages.map((message) => (
@@ -26,9 +26,9 @@ export default function Modal(props) {
                     ))}
                 </div>
 
-                <div className={classes.actionsContainer}>
+                <footer className={classes.actionsContainer}>
                     <Button onClick={props.onClose}>Okay</Button>
-                </div>
+                </footer>
 
             </Card>
         </>

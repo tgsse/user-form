@@ -4,21 +4,13 @@ import Input from "../Input/Input";
 import classes from "./Form.module.css"
 import Card from "../Card/Card";
 import User from "../../model/User"
-
-const Constants = {
-    minAge: 18,
-}
-
-function FormError(title, messages) {
-    this.title = title
-    this.messages = messages
-    return this
-}
+import Constants from "../../util/util"
+import FormError from "../../util/FormError"
 
 export default function Form(props) {
 
     const [name, setName] = useState("")
-    const [age, setAge] = useState(undefined)
+    const [age, setAge] = useState("")
 
     const onSubmit = event => {
         event.preventDefault()
@@ -28,6 +20,18 @@ export default function Form(props) {
             return
         }
         props.onSubmit(new User(name, age))
+    }
+
+    const onNameChange = event => {
+        setName(event.target.value)
+    }
+
+    const onAgeChange = event => {
+        setAge(event.target.value)
+    }
+
+    const onError = (errors) => {
+        props.onError(new FormError("Invalid input", errors))
     }
 
     const validate = () => {
@@ -47,18 +51,6 @@ export default function Form(props) {
             errors.push(`Users have to be at least ${Constants.minAge} years old to be added.`)
         }
         return errors.length > 0 ? errors : null
-    }
-
-    const onNameChange = event => {
-        setName(event.target.value)
-    }
-
-    const onAgeChange = event => {
-        setAge(event.target.value)
-    }
-
-    const onError = (errors) => {
-        props.onError(new FormError("Invalid input", errors))
     }
 
     return (

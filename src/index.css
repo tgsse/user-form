@@ -23,4 +23,10 @@ html, body, #root, .container {
   flex-direction: column;
   align-items: center;
   background-color: black;
+  padding: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
 }

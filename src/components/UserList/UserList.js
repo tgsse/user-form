@@ -6,10 +6,13 @@ export default function UserList(props) {
     return props.users.length ? (
             <Card>
                 <p className={classes.title}>Users</p>
-                {props.users.map(user => (
-                    <UserListItem user={user}/>
-                ))}
+                <ul>
+                    {props.users.map(user => (
+                        <li>
+                            <UserListItem key={user.name} user={user}/>
+                        </li>
+                    ))}
+                </ul>
             </Card>)
         : null
-
 }
